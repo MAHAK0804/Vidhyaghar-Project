@@ -1,0 +1,12 @@
+.container-fluid{
+    color: #3871C1;
+}
+.btn:hover{
+    background-color: #00ADEF;
+    border: #00ADEF solid;
+
+}
+.btn{
+    border: #00ADEF solid;
+    color:#3871C1;
+}

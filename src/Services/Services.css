@@ -1,0 +1,12 @@
+.bg-image{
+    background-image: url('../assets/services.jpg');
+    background-size: cover;
+}
+#img{
+    z-index: 1;
+}
+.btn{
+    border:transparent solid;
+    font-size: 25px;
+    background-color: transparent;
+}

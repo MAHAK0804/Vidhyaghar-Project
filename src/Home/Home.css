@@ -1,0 +1,45 @@
+h5,p{
+    font-size: 24px;
+    color: #000;
+    font-weight: bolder;
+}
+h3{
+    color: #00ADEF;
+    font-size: 35px;
+    text-align: center;
+}
+.para,.card-text{
+    color:#333;
+    font-size: 20px;
+    font-family: Arial;
+}
+.card-group{
+    padding: 30px;
+}
+.card{
+    margin: 30px;
+    box-shadow: #000 1px 1px 10px 1px;
+    border-radius: 10px;
+}
+.card-img-top{
+    height: 400px;
+}
+.review{
+    text-align: center;
+}
+.footer{
+    background-color: #333;
+   
+}
+.copyright{
+    background-color: #000;
+}
+.btn{
+    border:transparent solid;
+    font-size: 25px;
+}
+.mb-4 p{
+    font-size: 15px;
+    color: #0000007c;
+    text-align: left;
+}

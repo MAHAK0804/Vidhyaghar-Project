@@ -1,0 +1,12 @@
+.list-group-item p{
+    font-size: 15px;
+    color:#333;
+}
+.list-group-item h5{
+    font-size: 20px;
+    color: #00ADEF;
+}
+.form-label{
+    font-weight: bolder;
+    color: #00ADEF;
+}

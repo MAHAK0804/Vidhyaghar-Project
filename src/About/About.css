@@ -1,0 +1,11 @@
+.img-fluid{
+    /* box-shadow: #333 1px 1px 10px 10px; */
+}
+h1{
+    text-align: center;
+
+}
+.card-text{
+    color: #333;
+    font-size: 15px;
+}
