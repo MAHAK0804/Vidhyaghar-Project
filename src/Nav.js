@@ -11,6 +11,9 @@ import About from './About/About.js';
 import Services from './Services/Services.js';
 import Events from './Events/Events.js';
 import Contact from './Contactus/Contactus.js';
+import Teacherlogin from './Login/Teachers_login.js';
+import Studentlogin from './Login/Student_login.js';
+import Adminlogin from './Login/Admin_login.js';
 function Nav() {
   return (
     <Router>
@@ -44,12 +47,12 @@ function Nav() {
                 Login
               </Link>
               <ul class="dropdown-menu">
-                <li><Link class="dropdown-item" href="/Adminlogin">ADMIN</Link></li>
+                <li><Link class="dropdown-item" to="/Adminlogin">ADMIN</Link></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><Link class="dropdown-item" href="/Teacherlogin">TEACHERS</Link></li>
+                <li><Link class="dropdown-item" to="/Teacherslogin">TEACHERS</Link></li>
                 <li><hr class="dropdown-divider" /></li>
               
-                <li><Link class="dropdown-item" href="/Studentlogin">STUDENTS</Link></li>
+                <li><Link class="dropdown-item" to="/Studentlogin">STUDENTS</Link></li>
               </ul>
             </li>
           
@@ -90,6 +93,21 @@ function Nav() {
                             exact
                             path="/Events"
                             element={<Events />}
+                        ></Route>
+                         <Route
+                            exact
+                            path="/Adminlogin"
+                            element={<Adminlogin/>}
+                        ></Route>
+                         <Route
+                            exact
+                            path="/Teacherslogin"
+                            element={<Teacherlogin/>}
+                        ></Route>
+                         <Route
+                            exact
+                            path="/Studentlogin"
+                            element={<Studentlogin/>}
                         ></Route>
                     </Routes>
     </Router>
