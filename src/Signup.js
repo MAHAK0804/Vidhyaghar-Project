@@ -1,46 +1,42 @@
-import React, { useState } from 'react';
-import '../Nav.js';
-import { Link } from 'react-router-dom';
+import React, { useState }  from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 
-export default function Admin_login() {
-    const [AdminData, setAdminData] = useState({
-        id: "",
-        password: "",
-      });
-    
-      const [error, setError] = useState("");
-      const navigate = useNavigate();
-    
-      const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setAdminData({
-          ...AdminData,
-          [name]: value,
-        });
-      };
-    
-      const handleadmin = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await axios.post(
-            "http://localhost:3000//Adminlogin",
-            AdminData
-          );
-          if (response.status === 200) {
-            alert("Login successful!");
-            navigate("/");
-          } else {
-            setError("Login failed. Please check your credentials.");
-          }
-        } catch (error) {
-          console.error("Error logging in:", error);
-          setError("Login failed. Enter Valid credentials.");
+export default function Signup() {
+    const [input, setInput] = useState({
+        Username: '',
+        password: '',
+        confirmpassword:'',
+        mail:''
+    });
+
+
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setInput(prevInput => {
+            return {
+                ...prevInput,
+                [name]: value
+            }
+        })
+    }
+  const navigate = useNavigate();
+
+    function handleClick(event) {
+        // event.preventDefalut();
+        const details = {
+            Username: input.Username,
+            password: input.password,
+            confirmpassword: input.confirmpassword,
+            mail: input.mail
+
         }
-      };
-    
+        axios.post('/Signup', details);
+        navigate("/Adminlogin");
+
+    };
 
     return (
         <div>
@@ -53,33 +49,35 @@ export default function Admin_login() {
 
                                     <div class="mb-md-5 mt-md-4 pb-5">
 
-                                        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                                        <p class="text-white-50 mb-5">Please enter your ID and password!</p>
-                                        <form method='post' action='http://localhost:3000/' onSubmit={handleadmin}>
+                                        <h2 class="fw-bold mb-2 text-uppercase">Signup</h2>
+                                        <p class="text-white-50 mb-5">Please enter your details</p>
+                                        <form method='post' action='http://localhost:3000/Signup'>
                                             <div class="form-outline form-white mb-4">
-                                                <label class="form-label" for="typeEmailX">Admin ID</label>
+                                                <label class="form-label" for="typeEmailX">Admin Username</label>
 
-                                                <input type="text" name="id"  class="form-control form-control-lg" value={AdminData.id}
-                  onChange={handleInputChange}  required />
+                                                <input type="text" name="Username" value={input.Username} class="form-control form-control-lg" onChange={handleChange} required />
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
                                                 <label class="form-label" for="typePasswordX">Password</label>
 
-                                                <input type="password" name="password"  class="form-control form-control-lg" value={AdminData.password}
-                  onChange={handleInputChange}  required />
+                                                <input type="password" name="password" value={input.password} class="form-control form-control-lg" onChange={handleChange} required />
                                             </div>
 
-                                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="mailto:mahak191713@gmsil.com">Forgot password?</a></p>
+                                            <div class="form-outline form-white mb-4">
+                                                <label class="form-label" for="typePasswordX">Confirm Password</label>
 
-                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" value='submit'>Login</button>
-
-                                            <div>
-                                                <p class="mb-0">Don't have an account? <Link to="/Signup" class="text-white-50 fw-bold">Sign Up</Link>
-                                                </p>
+                                                <input type="password" name="confirmpassword" value={input.confirmpassword} class="form-control form-control-lg" onChange={handleChange} required />
                                             </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <label class="form-label" for="typePasswordX">E-Mail</label>
+
+                                                <input type="email" name="mail" value={input.mail} class="form-control form-control-lg" onChange={handleChange} required />
+                                            </div>
+                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" value='submit' onClick={handleClick}>Signup</button>
+
+                                          
                                         </form>
-                                        {error && <p className="error">{error}</p>}
                                     </div>
                                 </div>
                             </div>
@@ -207,6 +205,5 @@ export default function Admin_login() {
             </footer>
             {/* <!-- Footer --> */}
         </div>
-    )
+)
 }
-

@@ -2,37 +2,50 @@ import React,{useState} from 'react';
 import './Teachers_login.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
+
 
 
 export default function Teachers_login() {
-    const [input, setInput] = useState({
-        id: '',
-        password: ''
+const [loginData, setLoginData] = useState({
+    id: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
     });
+  };
 
-
-    function handleChange(event) {
-        const { name, value } = event.target;
-        setInput(prevInput => {
-            return {
-                ...prevInput,
-                [name]: value
-            }
-        })
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/Teacherslogin",
+        loginData
+      );
+      if (response.status === 200) {
+        alert("Login successful!");
+        navigate("/");
+      } else {
+        setError("Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setError("Login failed. Enter Valid credentials.");
     }
-    function handleClick(event) {
-        // event.preventDefalut();
-        const details = {
-            id:input.id,
-            password:input.password
-
-        }
-        axios.post('/Teacherslogin', details)
-    }
+  };
 
     return (
         <div>
-            <section class="vh-100 gradient-custom">
+            <section className="vh-100 gradient-custom">
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -43,23 +56,26 @@ export default function Teachers_login() {
 
                                         <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                         <p class="text-white-50 mb-5">Please enter your ID and password!</p>
-                                        <form method='post' action='http://localhost:3000/Teacherslogin'>
+                                        <form method='post' action='http://localhost:3000/' onSubmit={handleLogin} >
                                             <div class="form-outline form-white mb-4">
-                                                <label class="form-label" for="typeEmailX">Teacher ID</label>
+                                                <label class="form-label" >Teacher ID</label>
 
-                                                <input type="text" name="id" value={input.id}  class="form-control form-control-lg" onChange={handleChange} required />
+                                                <input type="text" name="id" value={loginData.id}
+                  onChange={handleInputChange}  class="form-control form-control-lg"  required />
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
-                                                <label class="form-label" for="typePasswordX">Password</label>
+                                                <label class="form-label" >Password</label>
 
-                                                <input type="password" name="password" value={input.password}  class="form-control form-control-lg" onChange={handleChange} required />
+                                                <input type="password" name="password" class="form-control form-control-lg"  value={loginData.password}
+                  onChange={handleInputChange} required />
                                             </div>
 
-                                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="mailto:mahak191713@gmsil.com">Forgot password?</a></p>
+                                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="mailto:mahak191713@gmail.com">Forgot password?</a></p>
 
-                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" value='submit' onClick={handleClick}>Login</button>
+                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" >Login</button>
                                         </form>
+                                        {error && <p className="error">{error}</p>}
                                     </div>
                                 </div>
                             </div>

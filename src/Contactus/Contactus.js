@@ -3,6 +3,8 @@ import '../Contactus/Contact.css';
 import Contact from '../assets/contact.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 
 export default function Contactus() {
@@ -23,6 +25,8 @@ export default function Contactus() {
       }
     })
   }
+  const navigate = useNavigate();
+
 
   function handleClick(event){
     // event.preventDefalut();
@@ -34,6 +38,8 @@ export default function Contactus() {
 
     }
     axios.post('/Contact',details)
+    navigate("/");
+
   }
  
   return (
