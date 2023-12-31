@@ -26,7 +26,7 @@ export default function Admin_login() {
         e.preventDefault();
         try {
           const response = await axios.post(
-            "http://localhost:3000//Adminlogin",
+            "http://localhost:3000/Adminlogin",
             AdminData
           );
           if (response.status === 200) {

@@ -25,7 +25,7 @@ export default function Student_login() {
         e.preventDefault();
         try {
           const response = await axios.post(
-            "http://localhost:3000//Studentlogin",
+            "http://localhost:3000/Studentlogin",
             StudentData
           );
           if (response.status === 200) {

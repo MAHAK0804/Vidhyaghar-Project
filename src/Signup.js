@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
     const [input, setInput] = useState({
-        Username: '',
+        id: '',
         password: '',
         confirmpassword:'',
         mail:''
@@ -27,7 +27,7 @@ export default function Signup() {
     function handleClick(event) {
         // event.preventDefalut();
         const details = {
-            Username: input.Username,
+            id: input.id,
             password: input.password,
             confirmpassword: input.confirmpassword,
             mail: input.mail
@@ -55,7 +55,7 @@ export default function Signup() {
                                             <div class="form-outline form-white mb-4">
                                                 <label class="form-label" for="typeEmailX">Admin Username</label>
 
-                                                <input type="text" name="Username" value={input.Username} class="form-control form-control-lg" onChange={handleChange} required />
+                                                <input type="text" name="id" value={input.id} class="form-control form-control-lg" onChange={handleChange} required />
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
