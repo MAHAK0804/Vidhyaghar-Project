@@ -173,7 +173,7 @@ export default function Home() {
                       <br />
 
                       <li>
-                      <Link class="text-body" to="#"><i class="fa fa-home">   302, Kumar Plaza, Kalina Kurla raod Santacruz East HRY-400054</i></Link>
+                        <Link class="text-body" to="#"><i class="fa fa-home">   302, Kumar Plaza, Kalina Kurla raod Santacruz East HRY-400054</i></Link>
                       </li>
                       <br />
                       <li>

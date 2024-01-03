@@ -15,6 +15,10 @@ import Teacherlogin from './Login/Teachers_login.js';
 import Studentlogin from './Login/Student_login.js';
 import Adminlogin from './Login/Admin_login.js';
 import Signup from './Signup.js';
+import Dashboard from './Admin/Dashboard.js';
+import Attendance from './Admin/Attendance.js';
+import Complain from './Admin/Complain.js';
+import Notice from './Admin/Notice.js';
 function Nav() {
   return (
     <Router>
@@ -114,6 +118,26 @@ function Nav() {
           exact
           path="/Signup"
           element={<Signup/>}
+        ></Route>
+          <Route
+          exact
+          path="/admin/dashboard"
+          element={<Dashboard/>}
+        ></Route>
+          <Route
+          exact
+          path="/admin/attendance"
+          element={<Attendance/>}
+        ></Route>
+          <Route
+          exact
+          path="/admin/notice"
+          element={<Complain/>}
+        ></Route>
+          <Route
+          exact
+          path="/admin/complain"
+          element={<Notice/>}
         ></Route>
       </Routes>
     </Router>

@@ -31,7 +31,7 @@ export default function Admin_login() {
           );
           if (response.status === 200) {
             alert("Login successful!");
-            navigate("/");
+            navigate("/admin/dashboard");
           } else {
             setError("Login failed. Please check your credentials.");
           }
@@ -55,7 +55,7 @@ export default function Admin_login() {
 
                                         <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                         <p class="text-white-50 mb-5">Please enter your ID and password!</p>
-                                        <form method='post' action='http://localhost:3000/' onSubmit={handleadmin}>
+                                        <form method='post' action='http://localhost:3000/admin/dashboard' onSubmit={handleadmin}>
                                             <div class="form-outline form-white mb-4">
                                                 <label class="form-label" for="typeEmailX">Admin ID</label>
 

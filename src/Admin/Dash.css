@@ -1,0 +1,21 @@
+.fa,.fas{
+    font-size: 24px;
+    padding: 10px;
+}
+#user{
+    padding: 15px;
+    font-size: 30px;
+    text-align: center;
+}
+.list-group-item{
+    text-decoration: none;
+    font-size: 22px;
+    font-weight:bolder; 
+}
+.card .fa{
+    font-size: 35px;
+}
+.card{
+    padding: 20px;
+    align-items: center;
+}
